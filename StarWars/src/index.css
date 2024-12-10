@@ -53,6 +53,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+.Hero{
+  border: 2px solid whitesmoke;
+  margin: 10px;
+  padding: 20px;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
