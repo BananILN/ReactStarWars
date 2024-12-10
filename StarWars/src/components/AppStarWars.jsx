@@ -1,20 +1,29 @@
 import {getRandomElementOfArr, getRandomHexColor} from "./utils"
 import { API_URL } from "./api";
 import { useEffect, useRef, useState } from "react";
+import ReactLoading from "react-loading";
 
-function StarWars(){
-    const [loading, setLoading] = useState(true);
-    if(!loading){
-        return null;
+export default function StarWars(){
+    
+    const intervalRef = useRef(undefined);
+    const [loading, setLoading] = useState(false);
+    
+    if(intervalRef.current === undefined && !loading){
+        
+        setTimeout(()=>{
+            setLoading(true)
+        },1000)
+        return (
+            <ReactLoading type="bars" color="#0000FF"  height={100} width={50}/>
+        )  
     }
-
     return(
-        <AppStarWars  setLoading={setLoading}/>
+        <AppStarWars />
     )
 }
 
-export default function AppStarWars(){
-    const intervalRef = useRef(undefined);
+ function AppStarWars(){
+     const intervalRef = useRef(undefined);
     const [hero, setHero] = useState({name: 'undefined'});
     const randColor = getRandomHexColor();
    
@@ -22,7 +31,7 @@ export default function AppStarWars(){
    
 
     useEffect(()=>{
-        getRandomHero();
+        getRandomHero()
         console.log("Mount");
     
 

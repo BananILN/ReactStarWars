@@ -1,14 +1,18 @@
 import { useState } from 'react'
 import AppStarWars from './components/AppStarWars'
 import './App.css'
+import StarWars from './components/AppStarWars'
+import ReactLoading from "react-loading";
+import AppLoading from './components/AppLoading';
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      <h2>Hi</h2>
-      <AppStarWars />
+      <StarWars/>
     </>
   )
 }
